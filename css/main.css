@@ -1,0 +1,307 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #c5e4e7;
+}
+
+button, input {
+  font-family: 'Space Mono', monospace;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 50px;
+  font-family: 'Space Mono', monospace;
+  margin: auto;
+}
+
+@media (min-width: 64rem) {
+  .container {
+    height: 100vh;
+    padding: 50px 0;
+  }
+}
+
+.container__logo {
+  margin-bottom: 40px;
+}
+
+.container__calculator {
+  width: 100%;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+@media (min-width: 425px) {
+  .container__calculator {
+    width: 425px;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .container__calculator {
+    width: 924px;
+    -ms-grid-columns: 1fr 1.1fr;
+        grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    padding-left: 3rem;
+  }
+}
+
+.container__calculator p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #5e7a7d;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.container__input-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1rem;
+}
+
+.container__input-holder img {
+  z-index: 2;
+  height: 18px;
+  width: 12px;
+}
+
+.container__input-holder > input {
+  font-size: 24px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #00494d;
+  text-align: right;
+  width: calc(100% + 28px);
+  margin-left: -28px;
+  padding: 4px 1rem 4px 0;
+  border: 2px solid #f4fafa;
+  border-radius: 5px;
+  background-color: #f4fafa;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container__input-holder > input:hover {
+  border-color: #26c0ab;
+}
+
+.container__input-holder #person {
+  height: 16px;
+}
+
+.container__input-holder.money {
+  margin-bottom: 35px;
+}
+
+.container__input-holder.person {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 64rem) {
+  .container__input-holder.person {
+    margin-bottom: 16px;
+  }
+}
+
+.container__input-holder.person.error > input {
+  border-color: #cc2020;
+}
+
+.container__input-holder.person.error::before {
+  display: inline-block;
+}
+
+.container__input-holder.person::before {
+  content: "Can't be zero";
+  position: absolute;
+  top: -62%;
+  right: 0%;
+  color: #cc2020;
+  font-weight: 700;
+  display: none;
+}
+
+.container__tip {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 35px;
+}
+
+@media (min-width: 64rem) {
+  .container__tip {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.container__tip-btn {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  color: #f4fafa;
+  background-color: #00494d;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container__tip-btn.active {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+
+.container__tip-btn:hover {
+  background-color: #c5e4e7;
+  color: #00494d;
+}
+
+.container__tip-custom {
+  width: 100%;
+  padding: 6px 16px;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: right;
+  color: #00494d;
+  border: 2px solid #f4fafa;
+  border-radius: 5px;
+  background-color: #f4fafa;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 64rem) {
+  .container__tip-custom {
+    padding: 6px 12px;
+  }
+}
+
+.container__tip-custom:hover {
+  border-color: #26c0ab;
+}
+
+.container__display {
+  background-color: #00494d;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+@media (min-width: 64rem) {
+  .container__display {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 40px;
+  }
+}
+
+.container__display-output {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.container__display-output p {
+  line-height: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #f4fafa;
+}
+
+.container__display-output span {
+  font-size: 14px;
+  color: #7f9c9f;
+}
+
+.container__display-output h1 {
+  font-size: 2rem;
+  color: #26c0ab;
+}
+
+@media (min-width: 64rem) {
+  .container__display-output h1 {
+    font-size: 3rem;
+  }
+}
+
+.container__reset {
+  width: 100%;
+  text-transform: uppercase;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00494d;
+  background-color: #26c0ab;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container__reset:hover {
+  background-color: #c5e4e7;
+}
+
+.container__reset.empty {
+  opacity: 0.1;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,237 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: 'Space Mono', monospace;
+    margin: auto;
+
+    @include breakpoint-up(large) {
+        height: 100vh;
+        padding: 50px 0;
+    }
+
+    &__logo {
+        margin-bottom: 40px;
+    }
+
+    &__calculator {
+        width: 100%;
+        padding: 2rem;
+        background-color: $white;
+        border-radius: 20px 20px 0 0;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include breakpoint-fixed-up(425px){
+            width: 425px;
+            border-radius: 20px;
+        }
+
+        @include breakpoint-up(large) {
+            width: 924px;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3rem;
+            padding-left: 3rem;
+        }
+        p {
+            font-size: 16px;
+            line-height: 26px;
+            color: $veryDarkGrayishCyan;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__selector {
+    }
+
+    &__input-holder {
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        img {
+            z-index: 2;
+            height: 18px;
+            width: 12px;
+        }
+        > input {
+            font-size: 24px;
+            line-height: 18px;
+            font-weight: 700;
+            color: $veryDarkCyan;
+            text-align: right;
+            width: calc(100% + 28px);
+            margin-left: -28px;
+            padding: 4px 1rem 4px 0;
+            border: 2px solid $veryLightGrayishCyan;
+            border-radius: 5px;
+            background-color: $veryLightGrayishCyan;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                border-color: $strongCyan;
+            }
+        }
+
+        #person {
+            height: 16px;
+        }
+
+        &.money {
+            margin-bottom: 35px;
+        }
+
+        &.person {
+            position: relative;
+            margin-bottom: 32px;
+
+            @include breakpoint-up(large){
+                margin-bottom: 16px;
+            }
+
+            &.error {
+                > input {
+                    border-color: rgb(204, 32, 32);
+                }
+                &::before {
+                    display: inline-block;
+                }
+            }
+
+            &::before {
+                content: "Can't be zero";
+                position: absolute;
+                top: -62%;
+                right: 0%;
+                color: rgb(204, 32, 32);
+                font-weight: 700;
+                display: none;
+            }
+        }
+    }
+
+    &__tip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 35px;
+
+        @include breakpoint-up(large){
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        &-btn {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            color: $veryLightGrayishCyan;
+            background-color: $veryDarkCyan;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &.active {
+                background-color: $strongCyan;
+                color: $veryDarkCyan;
+            }
+
+            &:hover {
+                background-color: $lightGrayishCyan;
+                color: $veryDarkCyan;
+            }
+        }
+
+        &-custom {
+            width: 100%;
+            padding: 6px 16px;
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 700;
+            text-align: right;
+            color: $veryDarkCyan;
+            border: 2px solid $veryLightGrayishCyan;
+            border-radius: 5px;
+            background-color: $veryLightGrayishCyan;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            @include breakpoint-up(large){
+                padding: 6px 12px;
+            }
+            &:hover {
+                border-color: $strongCyan;
+            }
+        }
+    }
+
+
+
+    &__display {
+        background-color: $veryDarkCyan;
+        border-radius: 10px;
+        padding: 1.5rem;
+
+        @include breakpoint-up(large){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+        }
+ 
+        &-output {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            p {
+                line-height: 1.25rem;
+                font-weight: 700;
+                margin-bottom: 0;
+                color: $veryLightGrayishCyan;
+            }
+
+            span {
+                font-size: 14px;
+                color: $darkGrayishCyan;
+            }
+
+            h1 {
+                font-size: 2rem;
+                color: $strongCyan;
+                @include breakpoint-up(large){
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+
+    &__reset {
+        width: 100%;
+        text-transform: uppercase;
+        padding: 12px 0;
+        font-size: 16px;
+        font-weight: 700;
+        color: $veryDarkCyan;
+        background-color: $strongCyan;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: $lightGrayishCyan;
+        }
+
+        &.empty {
+            opacity: 0.1;
+        }
+    }
+
+}
